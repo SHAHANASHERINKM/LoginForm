@@ -10,32 +10,43 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     const userType = document.getElementById("userType").value;
-
+    const yearType = document.getElementById("yearType").value;
+    const semType = document.getElementById("semType").value;
 
     let valid = true;
 
     // Validate username
     if (!username) {
-        document.getElementById("usernameError").textContent = "Username is required.";
+        document.getElementById("usernameError").textContent = "*Username is required.";
         valid = false;
     }
 
+    else if (username.length > 15) {
+        document.getElementById("usernameError").textContent = "*Username cannot be more than 15 characters.";
+        valid = false;
+    }
+    
+
     // Validate password
     if (!password) {
-        document.getElementById("passwordError").textContent = "Password is required.";
+        document.getElementById("passwordError").textContent = "*Password is required.";
+        valid = false;
+    }
+    else if (password.length > 8) {
+        document.getElementById("usernameError").textContent = "*password cannot be more than 8 characters.";
         valid = false;
     }
     if (!yearType) {
-        document.getElementById("yearTpeError").textContent = "Please select a year.";
+        document.getElementById("yearTypeError").textContent = "Please select a year.";
         valid = false;
     }
     if (!semType) {
-        document.getElementById("semTpeError").textContent = "Please select a sem type.";
+        document.getElementById("semTypeError").textContent = "Please select a sem type.";
         valid = false;
     }
 
     if (!userType) {
-        document.getElementById("userTpeError").textContent = "Please select a user type.";
+        document.getElementById("userTypeError").textContent = "Please select a user type.";
         valid = false;
     }
 
